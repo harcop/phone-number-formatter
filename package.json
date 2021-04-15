@@ -1,0 +1,21 @@
+{
+  "name": "phone-number-formatter",
+  "version": "1.0.0",
+  "description": "this is the a phone number for any Nigeria number to international number",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "keywords": [
+    "Nigeria",
+    "number",
+    "format",
+    "internation number"
+  ],
+  "author": "Harcop Toluwap",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^3.15.0"
+  }
+}
