@@ -26,6 +26,6 @@ const newNumbers1 = NigeriaPhoneNumberFormatter(numbers);
 //adding prepend to the numbers
 const newNumbers2 = NigeriaPhoneNumberFormatter(numbers, {prepend: '+'});
 
-//console.log(newNumbers);
+//console.log(newNumbers2);
 //['+2348012345678', '+2348102345678', '+2347012345678', '+23481098765432']
 ```
