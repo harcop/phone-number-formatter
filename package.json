@@ -1,5 +1,5 @@
 {
-  "name": "phone-number-formatter",
+  "name": "@toluwap/phone-number-formatter",
   "version": "1.0.0",
   "description": "this is the a phone number for any Nigeria number to international number",
   "main": "index.js",
