@@ -2,15 +2,28 @@
 let _options = {};
 
 const NigeriaPhoneNumberFormatter = (numbers, options = {}) => {
+    let arrNumbers = [numbers];
+    let isArray = false;
+
+    if (Array.isArray(numbers)) {
+        isArray = true;
+        arrNumbers = [...numbers];
+    }
+
     _options = options;
+
     const _finalNumbers = [];
-    for (const _number of numbers) {
-        const _no = convert(_number);
-        if (Number.isInteger(Number(_no)) && _no.length > 10) {
-            _finalNumbers.push(_no); 
+    for (const _number of arrNumbers) {
+        const _num = _number
+                    .toString()
+                    .trim()
+                    .replace(/\s/gu, '')
+        const responseNumber = convert(_num);
+        if (Number.isInteger(Number(responseNumber)) && responseNumber.length > 10) {
+            _finalNumbers.push(responseNumber); 
         }
     }
-    return _finalNumbers;
+    return isArray ? _finalNumbers : _finalNumbers[0];
 };
 
 function convert (_number) {
@@ -44,5 +57,4 @@ function branchAndConvert (number) {
     return NaN;
 }
 
-// console.log(phoneNumberFormatter(_numbers));
 module.exports = { NigeriaPhoneNumberFormatter };
