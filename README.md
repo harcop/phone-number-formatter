@@ -7,7 +7,7 @@ Format any valid Nigeria number into international format.
 ### Installing
 
 ```sh
-$ npm install phone-number-formatter --save
+$ npm install @toluwap/phone-number-formatter --save
 ```
 
 Usage 
