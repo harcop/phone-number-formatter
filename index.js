@@ -27,10 +27,9 @@ const NigeriaPhoneNumberFormatter = (numbers, options = {}) => {
 };
 
 function convert (_number) {
-    const _firstDigit = _number.substr(0, 1);
-    if (_firstDigit === '+') {
-        return sliceAndConvert(_number.substr(1));
-    } else if (_firstDigit === '2') {
+    if (_number.substr(0, 4) === '+234') {
+        return sliceAndConvert(_number.substr(1)); // remove +
+    } else if (_number.substr(0, 3) === '234') {
         return sliceAndConvert(_number);
     } 
     return branchAndConvert(_number);
@@ -38,7 +37,7 @@ function convert (_number) {
 
 //number that start with 
 function sliceAndConvert (_number) {
-    const _firstDigit = _number.slice(3); //remove 234
+    const _firstDigit = _number.slice(3); // remove 234
     return branchAndConvert(_firstDigit);
 }
 
