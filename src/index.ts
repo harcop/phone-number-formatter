@@ -11,14 +11,14 @@ export type props = {
 }
 
 // 0703, 703, 2340703, 234703, +2340703, +234703
-const match1 = /^0(7|8|9)0\d{8}$/ // normal format
-const match2 = /^(7|8|9)0\d{8}$/ // without first 0
-const match3 = /^2340(7|8|9)0\d{8}$/ // 234 with normal format
-const match4 = /^234(7|8|9)0\d{8}$/ // 234 without 0, international format
-const match5 = /^\+2340(7|8|9)0\d{8}$/ // + with 234 with normal format
-const match6 = /^\+234(7|8|9)0\d{8}$/ // + with international format
+const match1 = /^0(7|8|9)(0|1)\d{8}$/ // normal format
+const match2 = /^(7|8|9)(0|1)\d{8}$/ // without first 0
+const match3 = /^2340(7|8|9)(0|1)\d{8}$/ // 234 with normal format
+const match4 = /^234(7|8|9)(0|1)\d{8}$/ // 234 without 0, international format
+const match5 = /^\+2340(7|8|9)(0|1)\d{8}$/ // + with 234 with normal format
+const match6 = /^\+234(7|8|9)(0|1)\d{8}$/ // + with international format
 
-export function convertPhoneNumberToInternationFormat({phoneNumbers, options = {}}: props): phoneNumber[] {
+export function convertNigeriaPhoneNumberToInternationFormat({phoneNumbers, options = {}}: props): phoneNumber[] {
   const _numbers = Array.isArray(phoneNumbers) ? phoneNumbers : [phoneNumbers]
   const {prepend, append} = options
   const result: phoneNumber[] = []
@@ -32,7 +32,7 @@ export function convertPhoneNumberToInternationFormat({phoneNumbers, options = {
 }
 
 function convertToInternationFormat(phoneNumber: string): string | boolean {
-  if (validatePhoneNumber(phoneNumber)) {
+  if (validateNigeriaPhoneNumber(phoneNumber)) {
     if(match1.test(phoneNumber)) {
       return phoneNumber.replace('0', '234')
     } else if (match2.test(phoneNumber)) {
@@ -50,6 +50,6 @@ function convertToInternationFormat(phoneNumber: string): string | boolean {
   return false
 }
 
-export function validatePhoneNumber(number: string): boolean {
+export function validateNigeriaPhoneNumber(number: string): boolean {
     return [match1, match2, match3, match4, match5, match6].some((match) => match.test(number))
 }
