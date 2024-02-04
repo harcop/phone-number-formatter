@@ -1,6 +1,6 @@
 import { convertNigeriaPhoneNumberToInternationFormat, validateNigeriaPhoneNumber } from '../src/index';
 
-describe('convertPhoneNumberToInternationFormat', () => {
+describe('convertNigeriaPhoneNumberToInternationFormat', () => {
   it('should convert phone number to international format', () => {
     const phoneNumbers = ['07012345678', '7012345678', '23407012345678', '2347012345678', '+23407012345678', '+2347012345678', '09123456789'];
     const result = convertNigeriaPhoneNumberToInternationFormat({ phoneNumbers });
