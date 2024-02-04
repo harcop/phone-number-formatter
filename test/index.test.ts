@@ -1,13 +1,19 @@
 import { convertNigeriaPhoneNumberToInternationFormat, validateNigeriaPhoneNumber } from '../src/index';
 
 describe('convertNigeriaPhoneNumberToInternationFormat', () => {
-  it('should convert phone number to international format', () => {
+  it('should convert phone numbers to international format', () => {
     const phoneNumbers = ['07012345678', '7012345678', '23407012345678', '2347012345678', '+23407012345678', '+2347012345678', '09123456789'];
     const result = convertNigeriaPhoneNumberToInternationFormat({ phoneNumbers });
     expect(result).toEqual(['2347012345678', '2347012345678', '2347012345678', '2347012345678', '2347012345678', '2347012345678', '2349123456789']);
   })
 
-  it('should convert phone number to international format with + prepend and append with #', () => {
+  it('should convert a single phone number to international format', () => {
+    const phoneNumbers = '2347012345678';
+    const result = convertNigeriaPhoneNumberToInternationFormat({ phoneNumbers });
+    expect(result).toEqual(['2347012345678']);
+  })
+
+  it('should convert phone numbers to international format with + prepend and append with #', () => {
     const phoneNumbers = ['07012345678', '7012345678'];
     const result = convertNigeriaPhoneNumberToInternationFormat({ phoneNumbers, options: { prepend: '+', append: '#' } });
     expect(result).toEqual(['+2347012345678#', '+2347012345678#']);

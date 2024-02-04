@@ -5,8 +5,8 @@ export type options = {
   append?: string
 }
 
-export type props = {
-  phoneNumbers: phoneNumber[],
+export type phoneNumberType = {
+  phoneNumbers: phoneNumber | phoneNumber[],
   options?: options
 }
 
@@ -18,7 +18,7 @@ const match4 = /^234(7|8|9)(0|1)\d{8}$/ // 234 without 0, international format
 const match5 = /^\+2340(7|8|9)(0|1)\d{8}$/ // + with 234 with normal format
 const match6 = /^\+234(7|8|9)(0|1)\d{8}$/ // + with international format
 
-export function convertNigeriaPhoneNumberToInternationFormat({phoneNumbers, options = {}}: props): phoneNumber[] {
+export function convertNigeriaPhoneNumberToInternationFormat({phoneNumbers, options = {}}: phoneNumberType): phoneNumber[] {
   const _numbers = Array.isArray(phoneNumbers) ? phoneNumbers : [phoneNumbers]
   const {prepend, append} = options
   const result: phoneNumber[] = []
